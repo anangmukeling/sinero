@@ -2,7 +2,7 @@
 <footer class="sticky-footer bg-white">
     <div class="container my-auto">
         <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Your Website 2020</span>
+            <span>Copyright &copy; SISinero 2020</span>
         </div>
     </div>
 </footer>
@@ -38,22 +38,40 @@
     </div>
 </div>
 
-<!-- Bootstrap core JavaScript-->
+
+
 <script src="<?= base_url()  ?>aset/assets/jquery/jquery.min.js"></script>
 <script src="<?= base_url()  ?>aset/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-<!-- Core plugin JavaScript-->
 <script src="<?= base_url()  ?>aset/assets/jquery-easing/jquery.easing.min.js"></script>
-
-<!-- Custom scripts for all pages-->
 <script src="<?= base_url()  ?>aset/js/sb-admin-2.min.js"></script>
-
-<!-- Page level plugins -->
 <script src="<?= base_url()  ?>aset/assets/chart.js/Chart.min.js"></script>
-
-<!-- Page level custom scripts -->
 <script src="<?= base_url()  ?>aset/js/demo/chart-area-demo.js"></script>
 <script src="<?= base_url()  ?>aset/js/demo/chart-pie-demo.js"></script>
+<script>
+    $('#modaldetailguru').on('show.bs.modal', function(event) {
+        let gnip = $(event.relatedTarget).data('nip')
+        let gnama = $(event.relatedTarget).data('nama')
+        let galamat = $(event.relatedTarget).data('alamat')
+        let gjenkel = $(event.relatedTarget).data('jenkel')
+        let gemail = $(event.relatedTarget).data('email')
+        let gnohp = $(event.relatedTarget).data('nohp')
+        let gagama = $(event.relatedTarget).data('agama')
+        let gtempat = $(event.relatedTarget).data('tempat')
+        let gtgl = $(event.relatedTarget).data('tanggal')
+        let gjabatan = $(event.relatedTarget).data('jabatan')
+
+        // $(this).find('.modal-body input').val(namaku)
+        $(this).find('.nipguru').text(gnip)
+        $(this).find('.namaguru').text(gnama)
+        $(this).find('.alamatguru').text(galamat)
+        $(this).find('.genderguru').text(gjenkel)
+        $(this).find('.emailguru').text(gemail)
+        $(this).find('.nohpguru').text(gnohp)
+        $(this).find('.agamaguru').text(gagama)
+        $(this).find('.ttlguru').text(gtempat + ', ' + gtgl)
+        $(this).find('.jabatanguru').text(gjabatan)
+    })
+</script>
 
 
 </body>
