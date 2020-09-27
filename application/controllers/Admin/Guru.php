@@ -24,4 +24,14 @@ class Guru extends CI_Controller
         $this->Guru_model->HapusDataGuru($nip);
         redirect('admin/guru');
     }
+    public function tambah()
+    {
+        $this->Guru_model->tambahDataGuru($_POST);
+        redirect('admin/guru');
+    }
+    public function ubah()
+    {
+        $this->Guru_model->ubahDataGuru($_POST);
+        redirect('admin/guru');
+    }
 }
