@@ -19,15 +19,19 @@ class User extends CI_Controller
         $guru = $this->input->post('guru');
 
         if ($data['role'] == null || $data['role'] == 1) {
+            $data['role'] = 1;
             if ($siswa == null) {
                 $data['user'] = $this->Siswa_model->daftarSiswa();
             } else {
+                //fitur search siswa pada data user
+                //note belum jadi
                 $data['user'] = $this->Siswa_model->daftarSiswa();
             }
         } else if ($data['role'] == 2) {
             if ($guru == null) {
                 $data['user'] = $this->Guru_model->daftarGuru();
             } else {
+                //fitur search guru pada data user
                 $data['user'] = $this->Guru_model->daftarGuru($guru);
             }
         }

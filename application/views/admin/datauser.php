@@ -32,7 +32,7 @@
                         <input type="text" name="<?php echo (1 == $role) ? 'siswa' : 'guru'; ?>" class="form-control" placeholder="Search">
                     </div>
                     <div>
-                        <button type="button" class="btn btn-primary">Search</button>
+                        <button type="button" role="button" class="btn btn-primary">Search</button>
                     </div>
                 </div>
             </form>
