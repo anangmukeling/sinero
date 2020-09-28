@@ -78,7 +78,7 @@
                 <!-- <h6 class="collapse-header">Custom Components:</h6> -->
                 <a class="collapse-item" href="<?php echo base_url('admin/mapel') ?>">Data Mata Pelajaran</a>
                 <a class="collapse-item" href="<?php echo base_url('admin/jadwal') ?>">Data Jadwal Pelajaran</a>
-                <a class="collapse-item" href="<?php echo base_url('admin/userrr') ?>">Data Users</a>
+                <a class="collapse-item" href="<?php echo base_url('admin/user') ?>">Data Users</a>
                 <!-- <a class="collapse-item" href="cards.html">Cards</a> -->
             </div>
         </div>

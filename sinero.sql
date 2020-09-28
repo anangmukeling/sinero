@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 26 Sep 2020 pada 16.27
+-- Waktu pembuatan: 27 Sep 2020 pada 16.19
 -- Versi server: 10.4.14-MariaDB
 -- Versi PHP: 7.4.10
 
@@ -49,6 +49,7 @@ INSERT INTO `tb_admin` (`id_admin`, `nama`, `email`, `usr_admin`, `pwd_admin`) V
 --
 
 CREATE TABLE `tb_guru` (
+  `id_guru` int(5) NOT NULL,
   `nip` int(15) NOT NULL,
   `nama` char(50) NOT NULL,
   `alamat` varchar(255) NOT NULL,
@@ -60,6 +61,15 @@ CREATE TABLE `tb_guru` (
   `tgl_lahir` date NOT NULL,
   `jabatan` char(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `tb_guru`
+--
+
+INSERT INTO `tb_guru` (`id_guru`, `nip`, `nama`, `alamat`, `jenkel`, `email`, `nohp`, `agama`, `tempat_lahir`, `tgl_lahir`, `jabatan`) VALUES
+(2, 123, 'Anang Mukhlisin', 'Kebumen', 'L', 'anangmukhlisin69@gmail.com', '0895422980022', 'Islam', 'Sragen', '2023-09-20', 'Guru Honorer'),
+(4, 126, 'Bagas Satrio', 'Kebumen', 'L', 'anangmukhlisin69@gmail.com', '4546464', 'Budha', 'Sragen', '2009-09-20', 'Guru Honorer'),
+(5, 12, 'Rama Anam', 'sds', 'L', 'anangmukhlisin69@gmail.com', '4546464', 'Kristen Pr', 'Sragen', '2016-09-20', 'Ka Kwaran');
 
 -- --------------------------------------------------------
 
@@ -276,7 +286,8 @@ CREATE TABLE `tb_siswa` (
 --
 
 INSERT INTO `tb_siswa` (`nis`, `nama`, `alamat`, `jenkel`, `nohp`, `agama`, `tempat_lahir`, `tgl_lahir`, `pwd_siswa`) VALUES
-(1607, 'Anang Mukhlisin', 'anang@sinero.com', 'L', '0895422980022', 'Islam', 'Sragen', '1998-07-16', '1607');
+(7191, 'Anang Mukhlisin', 'Sragen', 'L', '0895422980022', 'Islam', 'Sragen', '2020-09-17', '7191'),
+(7192, 'Rama', 'Sragen', 'L', '0867343', 'Kristen', 'Kebumen', '2020-09-03', '7192');
 
 -- --------------------------------------------------------
 
@@ -313,7 +324,7 @@ ALTER TABLE `tb_admin`
 -- Indeks untuk tabel `tb_guru`
 --
 ALTER TABLE `tb_guru`
-  ADD PRIMARY KEY (`nip`);
+  ADD PRIMARY KEY (`id_guru`);
 
 --
 -- Indeks untuk tabel `tb_hari`
@@ -356,9 +367,9 @@ ALTER TABLE `tb_mapel`
 --
 ALTER TABLE `tb_mengajar`
   ADD PRIMARY KEY (`id_mengajar`),
-  ADD KEY `nip` (`nip`),
   ADD KEY `id_mapel` (`id_mapel`),
-  ADD KEY `nis` (`nis`);
+  ADD KEY `nis` (`nis`),
+  ADD KEY `nip` (`nip`);
 
 --
 -- Indeks untuk tabel `tb_nilai`
@@ -412,7 +423,7 @@ ALTER TABLE `tb_admin`
 -- AUTO_INCREMENT untuk tabel `tb_guru`
 --
 ALTER TABLE `tb_guru`
-  MODIFY `nip` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16072000;
+  MODIFY `id_guru` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_hari`
@@ -469,9 +480,9 @@ ALTER TABLE `tb_jadwal`
 -- Ketidakleluasaan untuk tabel `tb_mengajar`
 --
 ALTER TABLE `tb_mengajar`
-  ADD CONSTRAINT `tb_mengajar_ibfk_4` FOREIGN KEY (`nip`) REFERENCES `tb_guru` (`nip`) ON DELETE NO ACTION ON UPDATE CASCADE,
   ADD CONSTRAINT `tb_mengajar_ibfk_5` FOREIGN KEY (`id_mapel`) REFERENCES `tb_mapel` (`id_mapel`) ON DELETE NO ACTION ON UPDATE CASCADE,
-  ADD CONSTRAINT `tb_mengajar_ibfk_6` FOREIGN KEY (`nis`) REFERENCES `tb_siswa` (`nis`) ON DELETE NO ACTION ON UPDATE CASCADE;
+  ADD CONSTRAINT `tb_mengajar_ibfk_6` FOREIGN KEY (`nis`) REFERENCES `tb_siswa` (`nis`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `tb_mengajar_ibfk_7` FOREIGN KEY (`nip`) REFERENCES `tb_guru` (`id_guru`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `tb_nilai`
