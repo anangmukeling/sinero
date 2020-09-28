@@ -1,10 +1,10 @@
 <?php
 class Siswa_model extends CI_Model
 {
-    public function daftarGuru()
+    public function daftarSiswa()
     {
-        $this->db->order_by('nip', 'ASC');
-        return $query = $this->db->get('tb_guru')->result_array();
+        $this->db->order_by('nis', 'ASC');
+        return $query = $this->db->get('tb_siswa')->result_array();
     }
 
     public function HapusDataGuru($nip)

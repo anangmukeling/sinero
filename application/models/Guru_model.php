@@ -1,10 +1,21 @@
 <?php
 class Guru_model extends CI_Model
 {
-    public function daftarGuru()
+    public function daftarGuru($data = null)
     {
-        $this->db->order_by('nip', 'ASC');
-        return $query = $this->db->get('tb_guru')->result_array();
+        $query = "SELECT * FROM tb_guru ORDER BY nip ASC";
+        if ($data != null) {
+            $query = "SELECT * FROM tb_guru WHERE 
+        nip LIKE '%$data%' OR
+        nama LIKE '%$data%' OR
+        alamat LIKE '%$data%' OR
+        jenkel LIKE '%$data%' OR
+        email LIKE '%$data%' OR
+        nohp LIKE '%$data%' OR
+        agama LIKE '%$data%' OR
+        jabatan LIKE '%$data%'";
+        }
+        return $this->db->query($query)->result_array();
     }
 
     public function HapusDataGuru($nip)
